@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Risk Assessment Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .result { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .risk-high { color: #d32f2f; font-weight: bold; }
+        .risk-medium { color: #f57c00; font-weight: bold; }
+        .risk-low { color: #388e3c; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Risk Assessment Results</h1>
+    <div class="result">
+        <h2>Prediction:</h2>
+        <p>Risk Level: <span class="risk-{{ risk_level|lower }}">{{ risk_level }}</span></p>
+        <p>Probabilities:</p>
+        <ul>
+            <li>High Risk: {{ probabilities[0] }}%</li>
+            <li>Medium Risk: {{ probabilities[1] }}%</li>
+            <li>Low Risk: {{ probabilities[2] }}%</li>
+        </ul>
+    </div>
+    
+    <div class="result">
+        <h2>Input Data:</h2>
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>Pool</td><td>{{ pool }}</td></tr>
+            <tr><td>Project</td><td>{{ project }}</td></tr>
+            <tr><td>Category</td><td>{{ category }}</td></tr>
+            <tr><td>Chain</td><td>{{ chain }}</td></tr>
+            <tr><td>TVL</td><td>{{ tvl }}</td></tr>
+            <tr><td>APY</td><td>{{ apy }}</td></tr>
+            <tr><td>APY Base</td><td>{{ apy_base }}</td></tr>
+            <tr><td>APY Mean (30d)</td><td>{{ apy_mean_30d }}</td></tr>
+            <tr><td>APY Reward</td><td>{{ apy_reward }}</td></tr>
+            <tr><td>Outlook</td><td>{{ outlook }}</td></tr>
+        </table>
+    </div>
+    
+    <a href="/" style="display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #2196F3; color: white; text-decoration: none; border-radius: 4px;">Back to Form</a>
+</body>
+</html>
+    

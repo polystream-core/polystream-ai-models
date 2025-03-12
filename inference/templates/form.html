@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Risk Assessment Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        select, input { width: 100%; padding: 8px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Risk Assessment Model</h1>
+    <form action="/predict" method="post">
+        <div class="form-group">
+            <label for="pool">Pool:</label>
+            <select id="pool" name="pool" required>
+                <option value="" disabled selected>Select a pool</option>
+                {% for option in pool_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="project">Project:</label>
+            <select id="project" name="project" required>
+                <option value="" disabled selected>Select a project</option>
+                {% for option in project_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="" disabled selected>Select a category</option>
+                {% for option in category_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="chain">Chain:</label>
+            <select id="chain" name="chain" required>
+                <option value="" disabled selected>Select a chain</option>
+                {% for option in chain_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="tvl">TVL:</label>
+            <input type="number" id="tvl" name="tvl" step="0.01" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="apy">APY:</label>
+            <input type="number" id="apy" name="apy" step="0.01" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="apy_base">APY Base:</label>
+            <input type="number" id="apy_base" name="apy_base" step="0.01" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="apy_mean_30d">APY Mean (30 days):</label>
+            <input type="number" id="apy_mean_30d" name="apy_mean_30d" step="0.01" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="apy_reward">APY Reward:</label>
+            <input type="number" id="apy_reward" name="apy_reward" step="0.01" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="outlook">Outlook:</label>
+            <select id="outlook" name="outlook" required>
+                <option value="" disabled selected>Select an outlook</option>
+                {% for option in outlook_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <button type="submit">Predict Risk</button>
+    </form>
+</body>
+</html>
+    
